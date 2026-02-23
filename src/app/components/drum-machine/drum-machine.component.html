@@ -1,0 +1,79 @@
+<div id="container">
+  <header>
+    <h1>Angular Drum Machine</h1>
+
+    @if (loading()) {
+      <div id="loading-wrap">
+        <mat-spinner diameter="40" />
+        <h3>loading...</h3>
+      </div>
+    }
+  </header>
+
+  @if (!loading()) {
+    <div id="controls">
+      <button mat-raised-button color="primary" (click)="play()">Play</button>
+      <button mat-raised-button color="warn" (click)="stop()">Stop</button>
+      <button mat-raised-button (click)="reset()">Clear</button>
+
+      <div id="readout">
+        <span id="tempo">
+          <mat-slider min="60" max="180" step="1">
+            <input
+              matSliderThumb
+              [value]="machine.tempo()"
+              (valueChange)="updateTempo($event)"
+            >
+          </mat-slider>
+          <span id="bpm">{{ machine.tempo() }} bpm</span>
+        </span>
+      </div>
+    </div>
+
+    <ul id="dm-grid">
+      <li class="dm-header">
+        <ul>
+          <li class="instrument-name"></li>
+          @for (i of range(machine.getGridLength()); track $index) {
+            <li class="beat-num">
+              <div [class.current-beat]="($index + 1) === machine.currentBeat()">
+                {{ $index + 1 }}
+              </div>
+            </li>
+          }
+        </ul>
+      </li>
+
+      @for (row of machine.rows(); track $index) {
+        <li class="dm-row">
+          <ul class="instrument">
+            <li class="instrument-name">
+              {{ row.getInstrument().getName() }}<br>
+              <span>{{ row.getInstrument().getDescription() }}</span>
+            </li>
+            @for (beat of row.getBeats(); track $index) {
+              <li>
+                <button
+                  class="btn"
+                  [class.btn-on]="beat.isActive()"
+                  (click)="beat.toggle()"
+                >
+                  <div></div>
+                </button>
+              </li>
+            }
+          </ul>
+        </li>
+      }
+    </ul>
+
+    <footer>
+      Developed by <a href="http://www.dojosto.com">Doug Johnston</a> using
+      <a href="https://angular.dev/">Angular</a>.<br>
+      Drum loops provided by
+      <a href="http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/65">
+        Music Radar
+      </a>.
+    </footer>
+  }
+</div>

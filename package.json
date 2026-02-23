@@ -1,40 +1,36 @@
 {
-  "name": "Angular-Drum-Machine",
-  "version": "0.0.1",
-  "description": "Angular Drum Machine",
-  "main": "index.html",
+  "name": "angular-drum-machine",
+  "version": "1.0.0",
+  "description": "Angular Drum Machine — upgraded from AngularJS 1.2 to Angular 21",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dougjohnston/angular-drum-machine.git"
+  "dependencies": {
+    "@angular/animations": "^21.1.0",
+    "@angular/cdk": "^21.1.0",
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/material": "^21.1.0",
+    "@angular/platform-browser": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "howler": "^2.2.4",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "bower": "latest",
-    "grunt": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-contrib-connect": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-karma": "latest",
-    "karma": "latest",
-    "karma-script-launcher": "latest",
-    "karma-firefox-launcher": "latest",
-    "karma-chrome-launcher": "latest",
-    "karma-html2js-preprocessor": "latest",
-    "karma-jasmine": "latest",
-    "karma-requirejs": "latest",
-    "karma-phantomjs-launcher": "~0.2",
-    "karma-spec-reporter": "latest",
-    "jasmine-core": "latest",
-    "phantomjs-prebuilt": "latest",
-    "requirejs": "latest"
-  },
-  "author": "Doug Johnston",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/dougjohnston/angular-drum-machine/issues"
-  },
-  "homepage": "https://github.com/dougjohnston/angular-drum-machine"
+    "@angular/build": "^21.1.4",
+    "@angular/cli": "^21.1.4",
+    "@angular/compiler-cli": "^21.1.0",
+    "@types/howler": "^2.2.12",
+    "jsdom": "^27.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  }
 }
