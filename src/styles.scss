@@ -1,0 +1,39 @@
+@use '@angular/material' as mat;
+
+// Angular Material M3 dark theme
+// azure (closest to blue-grey in M3) + green accent
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$green-palette,
+      theme-type: dark,
+    ),
+    density: 0,
+  ));
+}
+
+// Global styles
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+// Drum machine beat button active state
+.btn-on {
+  background-color: #4caf50 !important;
+  border-color: #388e3c !important;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6) !important;
+}
+
+.current-beat {
+  color: #4caf50;
+  font-weight: bold;
+}
