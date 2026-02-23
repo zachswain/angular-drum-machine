@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 import { DrumMachineService } from './services/drum-machine.service';
 import { signal } from '@angular/core';
+// Note: Angular 21 is zoneless — no provideZoneChangeDetection needed
 import { vi } from 'vitest';
 
 describe('App', () => {
